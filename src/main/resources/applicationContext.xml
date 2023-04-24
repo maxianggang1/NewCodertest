@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="us1" class="com.msb.pojo.User"/>
+    <bean id="us2" class="com.msb.pojo.User">
+        <constructor-arg name="uid" value="222" />
+        <constructor-arg name="name" value="李四" />
+        <constructor-arg name="uage" value="18" />
+        <constructor-arg name="usex" value="女" />
+    </bean>
+    <!--使用工厂模式创建对象：1.创建对象 2.创建工厂对象 3.根据工厂对象，创建user对象 -->
+    <bean id="factory" class="com.msb.factory.UserFactory" />
+    <bean id="user1" factory-bean="factory" factory-method="getInstance" />
+</beans>
